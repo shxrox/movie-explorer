@@ -47,7 +47,7 @@ const MovieDetails = ({ darkMode }) => {
           justifyContent: 'space-between',
           alignItems: 'flex-start',
           textAlign: 'left',
-          flexWrap: 'wrap', // Allow wrapping on smaller screens
+          flexWrap: 'wrap', 
         }}
       >
         {/* Poster */}

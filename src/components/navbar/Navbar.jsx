@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
-import './Navbar.css'; // We'll use a separate CSS file for responsive styling
+import './Navbar.css'; 
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(() => {

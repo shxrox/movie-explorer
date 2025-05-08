@@ -104,7 +104,7 @@ const Trending = ({ darkMode }) => {
                   marginTop: "5px",
                   display: "-webkit-box",
                   overflow: "hidden",
-                  WebkitLineClamp: "3", /* Limits the text to 3 lines */
+                  WebkitLineClamp: "3", 
                   WebkitBoxOrient: "vertical",
                 }}
               >

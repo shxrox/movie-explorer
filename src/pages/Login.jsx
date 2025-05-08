@@ -13,7 +13,7 @@ const Login = () => {
       return;
     }
 
-    // Replace with actual auth logic
+
     if (email === "admin@example.com" && password === "password") {
       alert("Login successful!");
     } else {
@@ -55,12 +55,12 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffffff", // White background
+    backgroundColor: "#ffffff", 
     padding: "20px",
   },
   form: {
-    background: "#222222", // Dark black form background
-    color: "#fff", // White text for contrast
+    background: "#222222",
+    color: "#fff", 
     padding: "40px 30px",
     borderRadius: "12px",
     boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
@@ -74,7 +74,7 @@ const styles = {
   title: {
     marginBottom: "25px",
     fontSize: "24px",
-    color: "#fff", // White text for the title
+    color: "#fff", 
   },
   input: {
     width: "100%",
@@ -89,7 +89,7 @@ const styles = {
   button: {
     width: "100%",
     padding: "12px",
-    background: "#000000", // Black button
+    background: "#000000", 
     color: "#fff",
     border: "none",
     borderRadius: "8px",
@@ -97,7 +97,7 @@ const styles = {
     fontWeight: "bold",
     cursor: "pointer",
     transition: "background 0.3s ease",
-    marginBottom: "15px", // Adding some space below the button
+    marginBottom: "15px", 
   },
   error: {
     color: "#d9534f",
@@ -107,7 +107,7 @@ const styles = {
   hint: {
     marginTop: "12px",
     fontSize: "12px",
-    color: "#aaa", // Light gray text for hints
+    color: "#aaa", 
   },
 };
 

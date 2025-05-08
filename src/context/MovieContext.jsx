@@ -6,10 +6,10 @@ const MovieContext = createContext();
 export const MovieProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
-  const [query, setQuery] = useState(""); // Track search input
+  const [query, setQuery] = useState(""); 
 
   const loadTrending = useCallback(async () => {
-    if (query) return; // Prevent loading trending if in search mode
+    if (query) return; 
     const data = await fetchTrendingMovies(page);
     setMovies((prev) => [...prev, ...data]);
     setPage((prev) => prev + 1);
@@ -17,9 +17,9 @@ export const MovieProvider = ({ children }) => {
 
   const search = async (newQuery) => {
     setQuery(newQuery);
-    setPage(1); // Reset page in case user goes back to trending
+    setPage(1); 
     const results = await searchMovies(newQuery);
-    setMovies(results); // Replace movies with search results
+    setMovies(results); 
   };
 
   return (

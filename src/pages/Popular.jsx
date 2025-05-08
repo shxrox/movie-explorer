@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchPopularMovies } from "../services/movieService"; // Import the service
+import { fetchPopularMovies } from "../services/movieService"; 
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 
@@ -104,7 +104,7 @@ const Popular = ({ darkMode }) => {
                   marginTop: "5px",
                   display: "-webkit-box",
                   overflow: "hidden",
-                  WebkitLineClamp: "3", /* Limits the text to 3 lines */
+                  WebkitLineClamp: "3", 
                   WebkitBoxOrient: "vertical",
                 }}
               >
