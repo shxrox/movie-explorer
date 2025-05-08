@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { fetchTopRatedMovies } from "../services/movieService";
+import { fetchTopRatedMovies } from "../services/movieService"; // Import the service
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 
-const TopRated = () => {
+const TopRated = ({ darkMode }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -16,26 +16,100 @@ const TopRated = () => {
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: darkMode ? "#121212" : "#f4f4f4",
+        minHeight: "100vh",
+        padding: "20px",
+        transition: "background-color 0.3s ease",
+      }}
+    >
       <Navbar />
-      <h2>Top Rated Movies</h2>
-      <div className="movie-list">
+      <h2
+        style={{
+          textAlign: "center",
+          color: darkMode ? "#f1f1f1" : "#000",
+          marginBottom: "30px",
+        }}
+      >
+        Top Rated Movies
+      </h2>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "20px",
+        }}
+      >
         {movies.map((movie) => (
-          <div key={movie.id} className="movie-item">
+          <div
+            key={movie.id}
+            style={{
+              flex: "1 1 200px",
+              maxWidth: "250px",
+              backgroundColor: darkMode ? "#333" : "#fff",
+              borderRadius: "10px",
+              boxShadow: darkMode ? "0 0 10px rgba(255, 255, 255, 0.3)" : "0 0 10px rgba(0, 0, 0, 0.2)",
+              overflow: "hidden",
+              textAlign: "center",
+              padding: "10px",
+              transition: "background-color 0.3s ease",
+            }}
+          >
             <Link to={`/movie/${movie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                 alt={movie.title}
-                className="movie-poster"
+                style={{
+                  width: "100%",
+                  borderRadius: "10px",
+                  boxShadow: darkMode ? "0 0 10px rgba(255, 255, 255, 0.2)" : "0 0 10px rgba(0, 0, 0, 0.2)",
+                }}
               />
             </Link>
-            <div className="movie-details">
-              <Link to={`/movie/${movie.id}`}>
-                <h3>{movie.title}</h3>
+            <div style={{ marginTop: "10px" }}>
+              <Link
+                to={`/movie/${movie.id}`}
+                style={{
+                  fontSize: "1.1rem",
+                  fontWeight: "bold",
+                  color: darkMode ? "#f1f1f1" : "#000",
+                  textDecoration: "none",
+                }}
+              >
+                {movie.title}
               </Link>
-              <p><strong>Release Date:</strong> {movie.release_date}</p>
-              <p><strong>Rating:</strong> {movie.vote_average}</p>
-              <p><strong>Overview:</strong> {movie.overview}</p>
+              <p
+                style={{
+                  fontSize: "0.9rem",
+                  color: darkMode ? "#ccc" : "#666",
+                  marginTop: "5px",
+                }}
+              >
+                <strong>Release Date:</strong> {movie.release_date}
+              </p>
+              <p
+                style={{
+                  fontSize: "0.9rem",
+                  color: darkMode ? "#ccc" : "#666",
+                }}
+              >
+                <strong>Rating:</strong> {movie.vote_average}
+              </p>
+              <p
+                style={{
+                  fontSize: "0.9rem",
+                  color: darkMode ? "#ccc" : "#666",
+                  marginTop: "5px",
+                  display: "-webkit-box",
+                  overflow: "hidden",
+                  WebkitLineClamp: "3", /* Limits the text to 3 lines */
+                  WebkitBoxOrient: "vertical",
+                }}
+              >
+                <strong>Overview:</strong> {movie.overview}
+              </p>
             </div>
           </div>
         ))}

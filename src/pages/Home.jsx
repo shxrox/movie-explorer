@@ -38,7 +38,7 @@ const Home = () => {
     <div>
       <Navbar />
       <SearchBar onSearch={search} />
-      <h2 style={{ textAlign: 'center' }}>Trending / Search Results</h2>
+      <h2 style={{ textAlign: 'center' }}>All The Movies</h2>
       <MovieList movies={movies} />
       {loading && <div style={{ textAlign: 'center' }}>Loading...</div>} {/* Loading Indicator */}
     </div>

@@ -13,10 +13,9 @@ const Login = () => {
       return;
     }
 
-    // You can replace this with real authentication logic
+    // Replace with actual auth logic
     if (email === "admin@example.com" && password === "password") {
       alert("Login successful!");
-      // Navigate or store token here
     } else {
       setError("Invalid credentials.");
     }
@@ -25,7 +24,7 @@ const Login = () => {
   return (
     <div style={styles.container}>
       <form onSubmit={handleLogin} style={styles.form}>
-        <h2 style={styles.title}>Login</h2>
+        <h2 style={styles.title}>🔐 Sign In</h2>
         {error && <p style={styles.error}>{error}</p>}
         <input
           type="email"
@@ -44,6 +43,7 @@ const Login = () => {
         <button type="submit" style={styles.button}>
           Login
         </button>
+        <p style={styles.hint}>Demo: admin@example.com / password</p>
       </form>
     </div>
   );
@@ -55,40 +55,59 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "#1c1c1c",
+    backgroundColor: "#ffffff", // White background
+    padding: "20px",
   },
   form: {
-    background: "#fff",
-    padding: "30px",
-    borderRadius: "10px",
-    boxShadow: "0 0 10px rgba(0,0,0,0.3)",
-    width: "300px",
+    background: "#222222", // Dark black form background
+    color: "#fff", // White text for contrast
+    padding: "40px 30px",
+    borderRadius: "12px",
+    boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
+    width: "100%",
+    maxWidth: "400px",
     textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   title: {
-    marginBottom: "20px",
+    marginBottom: "25px",
+    fontSize: "24px",
+    color: "#fff", // White text for the title
   },
   input: {
     width: "100%",
-    padding: "10px",
-    marginBottom: "15px",
-    borderRadius: "5px",
+    padding: "12px 14px",
+    marginBottom: "16px",
+    borderRadius: "8px",
     border: "1px solid #ccc",
-    fontSize: "14px",
+    fontSize: "15px",
+    transition: "0.3s ease",
+    outline: "none",
   },
   button: {
     width: "100%",
-    padding: "10px",
-    background: "#007bff",
+    padding: "12px",
+    background: "#000000", // Black button
     color: "#fff",
     border: "none",
-    borderRadius: "5px",
+    borderRadius: "8px",
     fontSize: "16px",
+    fontWeight: "bold",
     cursor: "pointer",
+    transition: "background 0.3s ease",
+    marginBottom: "15px", // Adding some space below the button
   },
   error: {
-    color: "red",
-    marginBottom: "10px",
+    color: "#d9534f",
+    marginBottom: "15px",
+    fontSize: "14px",
+  },
+  hint: {
+    marginTop: "12px",
+    fontSize: "12px",
+    color: "#aaa", // Light gray text for hints
   },
 };
 

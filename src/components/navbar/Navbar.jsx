@@ -1,15 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
+import './Navbar.css'; // We'll use a separate CSS file for responsive styling
 
 const Navbar = () => {
-  return (
-    <nav style={{ padding: '10px', backgroundColor: '#333', color: 'white' }}>
-      <Link to="/" style={{ color: 'white', marginRight: '20px' }}>Home</Link>
-      <Link to="/trending" style={{ color: 'white', marginRight: '20px' }}>Trending</Link>
-      <Link to="/popular" style={{ color: 'white', marginRight: '20px' }}>Popular</Link>
-      <Link to="/top-rated" style={{ color: 'white', marginRight: '20px' }}>Top Rated</Link>
-      <Link to="/login" style={{ color: 'white' }}>Logout</Link>
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+    if (darkMode) {
+      document.body.style.backgroundColor = "#121212";
+      document.body.style.color = "white";
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.style.backgroundColor = "white";
+      document.body.style.color = "black";
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
+
+  const toggleTheme = () => setDarkMode(prev => !prev);
+  const toggleMenu = () => setMenuOpen(prev => !prev);
+
+  return (
+    <nav className={`navbar ${darkMode ? 'dark' : 'light'}`}>
+      <div className="navbar-logo">🎬 MovieExplorer</div>
+
+      <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
+        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link to="/trending" onClick={() => setMenuOpen(false)}>Trending</Link>
+        <Link to="/popular" onClick={() => setMenuOpen(false)}>Popular</Link>
+        <Link to="/top-rated" onClick={() => setMenuOpen(false)}>Top Rated</Link>
+        <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
+      </div>
+
+      <div className="navbar-icons">
+        <button onClick={toggleTheme} className="theme-toggle">
+          {darkMode ? <FaSun /> : <FaMoon />}
+        </button>
+        <button onClick={toggleMenu} className="menu-toggle">
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
     </nav>
   );
 };
