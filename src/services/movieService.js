@@ -1,9 +1,8 @@
 import axios from "axios";
 
-const API_KEY = "179698082a655e5d3e9cf6f72683ddfa"; // Replace with your actual TMDb API key
+const API_KEY = "179698082a655e5d3e9cf6f72683ddfa";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-// Create an Axios instance with default config
 const tmdb = axios.create({
   baseURL: BASE_URL,
   params: {
@@ -11,37 +10,37 @@ const tmdb = axios.create({
   },
 });
 
-// Fetch trending movies with pagination
 export const fetchTrendingMovies = async (page = 1) => {
-  const response = await tmdb.get("/trending/movie/week", {
-    params: {
-      page,
-    },
-  });
+  const response = await tmdb.get("/trending/movie/week", { params: { page } });
   return response.data.results;
 };
 
-// Search for movies
-export const searchMovies = async (query) => {
-  const response = await tmdb.get("/search/movie", {
-    params: {
-      query,
-    },
-  });
+export const fetchPopularMovies = async (page = 1) => {
+  const response = await tmdb.get("/movie/popular", { params: { page } });
   return response.data.results;
 };
 
-// Fetch movie details
+export const fetchTopRatedMovies = async (page = 1) => {
+  const response = await tmdb.get("/movie/top_rated", { params: { page } });
+  return response.data.results;
+};
+
 export const fetchMovieDetails = async (movieId) => {
   const response = await tmdb.get(`/movie/${movieId}`);
   return response.data;
 };
 
-// Fetch movie trailer (YouTube)
 export const fetchMovieTrailer = async (movieId) => {
   const response = await tmdb.get(`/movie/${movieId}/videos`);
   const trailers = response.data.results.filter(
     (video) => video.site === "YouTube" && video.type === "Trailer"
   );
   return trailers.length > 0 ? trailers[0] : null;
+};
+
+export const searchMovies = async (query) => {
+  const response = await tmdb.get("/search/movie", {
+    params: { query },
+  });
+  return response.data.results;
 };
