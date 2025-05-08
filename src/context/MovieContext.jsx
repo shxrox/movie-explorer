@@ -6,10 +6,17 @@ export const useMovies = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1); // Track the current page
+  const [loading, setLoading] = useState(false); // Track loading state
 
+  // Load trending movies with pagination
   const loadTrending = async () => {
-    const data = await fetchTrendingMovies();
-    setMovies(data);
+    if (loading) return; // Prevent multiple calls while loading
+    setLoading(true);
+    const data = await fetchTrendingMovies(page);
+    setMovies((prevMovies) => [...prevMovies, ...data]); // Append new movies to the list
+    setPage((prevPage) => prevPage + 1); // Increment the page
+    setLoading(false);
   };
 
   const search = async (query) => {
