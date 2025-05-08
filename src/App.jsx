@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { MovieProvider } from './context/MovieContext';
 import Home from './pages/Home';
 import MovieDetailsPage from './pages/MovieDetailsPage';
+import Trending from './pages/Trending';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/trending" element={<Trending />} />
           <Route path="/movie/:id" element={<MovieDetailsPage />} />
         </Routes>
       </Router>
