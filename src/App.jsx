@@ -3,6 +3,7 @@ import { MovieProvider } from './context/MovieContext';
 import Home from './pages/Home';
 import MovieDetailsPage from './pages/MovieDetailsPage';
 import Trending from './pages/Trending';
+import Popular from './pages/Popular';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/trending" element={<Trending />} />
+          <Route path="/popular" element={<Popular />} />
           <Route path="/movie/:id" element={<MovieDetailsPage />} />
         </Routes>
       </Router>
