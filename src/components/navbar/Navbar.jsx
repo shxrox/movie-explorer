@@ -1,33 +1,15 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button, Switch, FormControlLabel } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ toggleTheme, isDarkMode }) => {
+const Navbar = () => {
   return (
-    <AppBar position="sticky">
-      <Toolbar>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
-          Movie Explorer
-        </Typography>
-        <Button color="inherit" component={Link} to="/">
-          Home
-        </Button>
-        <Button color="inherit" component={Link} to="/search">
-          Search
-        </Button>
-        <Button color="inherit" component={Link} to="/favorites">
-          Favorites
-        </Button>
-        <Button color="inherit" component={Link} to="/settings">
-          Settings
-        </Button>
-        <FormControlLabel
-          control={<Switch checked={isDarkMode} onChange={toggleTheme} />}
-          label="Dark Mode"
-          style={{ color: 'white' }}
-        />
-      </Toolbar>
-    </AppBar>
+    <nav style={{ padding: '10px', backgroundColor: '#333', color: 'white' }}>
+      <Link to="/" style={{ color: 'white', marginRight: '20px' }}>Home</Link>
+      <Link to="/favorites" style={{ color: 'white', marginRight: '20px' }}>Favorites</Link>
+      <Link to="/trending" style={{ color: 'white', marginRight: '20px' }}>Trending</Link>
+      <Link to="/popular" style={{ color: 'white', marginRight: '20px' }}>Popular</Link>
+      <Link to="/top-rated" style={{ color: 'white' }}>Top Rated</Link>
+    </nav>
   );
 };
 
