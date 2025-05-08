@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import MovieDetailsPage from './pages/MovieDetailsPage';
 import Trending from './pages/Trending';
 import Popular from './pages/Popular';
+import TopRated from './pages/TopRated';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/trending" element={<Trending />} />
           <Route path="/popular" element={<Popular />} />
+          <Route path="/top-rated" element={<Popular />} />
           <Route path="/movie/:id" element={<MovieDetailsPage />} />
         </Routes>
       </Router>
