@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { fetchTopRatedMovies } from "../services/movieService"; 
+import { fetchTopRatedMovies } from "../services/movieService";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
+import Footer from "./Footer";
 
 const TopRated = ({ darkMode }) => {
   const [movies, setMovies] = useState([]);
@@ -97,6 +98,9 @@ const TopRated = ({ darkMode }) => {
               >
                 <strong>Rating:</strong> {movie.vote_average}
               </p>
+              <Link to={`/movie/${movie.id}`}>
+                <p style={{ fontSize: '0.9rem', color: darkMode ? '#ccc' : '#555' }}>Click here For details</p>
+              </Link>
               <p
                 style={{
                   fontSize: "0.9rem",
@@ -104,15 +108,17 @@ const TopRated = ({ darkMode }) => {
                   marginTop: "5px",
                   display: "-webkit-box",
                   overflow: "hidden",
-                  WebkitLineClamp: "3", 
+                  WebkitLineClamp: "3",
                   WebkitBoxOrient: "vertical",
                 }}
               >
                 <strong>Overview:</strong> {movie.overview}
               </p>
+
             </div>
           </div>
         ))}
+        <Footer darkMode={darkMode} />
       </div>
     </div>
   );

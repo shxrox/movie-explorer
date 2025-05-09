@@ -41,6 +41,7 @@ const MovieCard = ({ movie, darkMode }) => {
           }}
         >
           <h4 style={{ fontSize: '1.1rem', marginBottom: '5px' }}>{movie.title}</h4>
+          <p style={{ fontSize: '0.9rem', color: darkMode ? '#ccc' : '#555' }}>Click here For details</p>
           <p style={{ fontSize: '0.9rem', color: darkMode ? '#ccc' : '#555' }}>
             {movie.release_date?.slice(0, 4)}
           </p>

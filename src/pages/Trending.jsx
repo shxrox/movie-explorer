@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchTrendingMovies } from "../services/movieService";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
+import Footer from "./Footer";
 
 const Trending = ({ darkMode }) => {
   const [movies, setMovies] = useState([]);
@@ -104,15 +105,20 @@ const Trending = ({ darkMode }) => {
                   marginTop: "5px",
                   display: "-webkit-box",
                   overflow: "hidden",
-                  WebkitLineClamp: "3", 
+                  WebkitLineClamp: "3",
                   WebkitBoxOrient: "vertical",
                 }}
               >
+                <Link to={`/movie/${movie.id}`}> 
+                <p style={{ fontSize: '0.9rem', color: darkMode ? '#ccc' : '#555' }}>Click here For details</p>
+                </Link>
+
                 <strong>Overview:</strong> {movie.overview}
               </p>
             </div>
           </div>
         ))}
+                <Footer darkMode={darkMode} />
       </div>
     </div>
   );

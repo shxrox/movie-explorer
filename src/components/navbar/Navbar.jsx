@@ -1,24 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
-import './Navbar.css'; 
+import './Navbar.css';
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
+  const [darkMode, setDarkMode] = useState(() => localStorage.getItem("theme") === "dark");
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (darkMode) {
-      document.body.style.backgroundColor = "#121212";
-      document.body.style.color = "white";
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.body.style.backgroundColor = "white";
-      document.body.style.color = "black";
-      localStorage.setItem("theme", "light");
-    }
+    document.body.className = darkMode ? 'dark-mode' : 'light-mode';
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
   const toggleTheme = () => setDarkMode(prev => !prev);
