@@ -26,8 +26,4 @@ A web application that allows users to explore movies using real-time data from 
 
 ---
 
-## Live Demo
 
-You can view the live demo of the app here:
-
-[Movie Explorer App on Netlify](https://movie-explorerr.netlify.app/)
